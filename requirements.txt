@@ -1,7 +1,8 @@
 asgiref==3.7.2
 cloudinary==1.39.0
-Django==3.2.25
+Django==4.2.11
 django-cloudinary-storage==0.3.0
+django-filter==24.1
 djangorestframework==3.14.0
 Pillow==8.2.0
 pytz==2024.1
