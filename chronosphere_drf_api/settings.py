@@ -36,7 +36,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-gw2@8tr)!_^a)jvoj=ts6c$x@!=fwcsyg7$sj-7dwzvxz+7rx9'
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -103,11 +102,6 @@ JWT_AUTH_SAMESITE = 'None'
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'chronosphere_drf_api.serializers.CurrentUserSerializer'
 }
-
-
-cloudinary.config(
-    secure=True
-)
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
