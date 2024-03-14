@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2a512959.chunk.css",
+    "main.js": "/static/js/main.b6f844bc.chunk.js",
+    "main.js.map": "/static/js/main.b6f844bc.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.2eec1a11.js",
+    "runtime-main.js.map": "/static/js/runtime-main.2eec1a11.js.map",
+    "static/js/2.f88a955d.chunk.js": "/static/js/2.f88a955d.chunk.js",
+    "static/js/2.f88a955d.chunk.js.map": "/static/js/2.f88a955d.chunk.js.map",
+    "static/js/3.738f9021.chunk.js": "/static/js/3.738f9021.chunk.js",
+    "static/js/3.738f9021.chunk.js.map": "/static/js/3.738f9021.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.2a512959.chunk.css.map": "/static/css/main.2a512959.chunk.css.map",
+    "static/js/2.f88a955d.chunk.js.LICENSE.txt": "/static/js/2.f88a955d.chunk.js.LICENSE.txt",
+    "static/media/chronosphere_logo.ffeb7345.png": "/static/media/chronosphere_logo.ffeb7345.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2eec1a11.js",
+    "static/js/2.f88a955d.chunk.js",
+    "static/css/main.2a512959.chunk.css",
+    "static/js/main.b6f844bc.chunk.js"
+  ]
+}
