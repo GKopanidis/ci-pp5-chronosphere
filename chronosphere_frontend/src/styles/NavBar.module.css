@@ -10,3 +10,11 @@
 .sphere {
     color: #c90f0f;
 }
+
+.NavLink {
+    padding: 5px;
+}
+
+.Active i {
+    color: #c90f0f;
+}
