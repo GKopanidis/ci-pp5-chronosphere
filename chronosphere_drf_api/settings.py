@@ -74,6 +74,11 @@ ALLOWED_HOSTS = [
     'localhost',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-gkopanidis-cipp5chronos-grm898oexnx.ws-us110.gitpod.io',
+    'http://localhost:8000/',
+]
+
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_ALL_ORIGINS = True
