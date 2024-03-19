@@ -74,7 +74,14 @@ function PostPage() {
           ) : currentUser ? (
             <span>No comments yet, be the first to comment!</span>
           ) : (
-            <span>No comments... yet</span>
+            <div>
+              <span>No comments... yet!</span>
+              <br />
+              <span>
+                Please <a href="/signup" style={{ textDecoration: 'underline' }}>Sign up</a> or 
+                <a href="/signin" style={{ textDecoration: 'underline' }}> Sign In</a> to leave a comment.
+              </span>
+            </div>
           )}
         </Container>
       </Col>
