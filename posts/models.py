@@ -43,7 +43,7 @@ class Post(models.Model):
         max_length=32, choices=image_filter_choices, default='normal'
     )
     category = models.ForeignKey(
-        Category, on_delete=models.SET_NULL, null=True, blank=True, related_name='posts')
+        Category, related_name='posts', on_delete=models.CASCADE)
 
     class Meta:
         ordering = ['-created_at']

@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
 import { axiosReq } from "../../api/axiosDefaults";
-import { Link } from "react-router-dom"; // Importiere Link
+import { NavLink } from "react-router-dom";
 
 const TopCategories = ({ mobile }) => {
   const [topCategories, setTopCategories] = useState([]);
@@ -25,29 +25,33 @@ const TopCategories = ({ mobile }) => {
     <Container
       className={`${appStyles.Content} ${mobile && "d-lg-none text-center mb-3"}`}
     >
-      {topCategories.length ? (
+      <p>Top 5 Categories</p>
+      {mobile ? (
+        <div className="d-flex flex-wrap justify-content-around">
+          <NavLink exact to="/" activeClassName="activeLink">All Categories</NavLink>
+          {topCategories.map((category) => (
+            <NavLink key={category.id} to={`/categories/${category.id}/posts`} activeClassName="activeLink">
+              {category.name}
+            </NavLink>
+          ))}
+        </div>
+      ) : (
         <>
-          <p>Top 5 Categories</p>
-          {mobile ? (
-            <div className="d-flex flex-wrap justify-content-around">
-              {topCategories.map((category) => (
-                <Link key={category.id} to={`/categories/${category.id}/posts`}>
-                  {category.name}
-                </Link>
-              ))}
-            </div>
-          ) : (
+          <div className="mb-2">
+            <NavLink exact to="/" activeClassName="activeLink">All Categories</NavLink>
+          </div>
+          {topCategories.length ? (
             topCategories.map((category) => (
               <div key={category.id} className="mb-2">
-                <Link to={`/categories/${category.id}/posts`}>
+                <NavLink to={`/categories/${category.id}/posts`} activeClassName="activeLink">
                   {category.name}
-                </Link>
+                </NavLink>
               </div>
             ))
+          ) : (
+            <Asset spinner />
           )}
         </>
-      ) : (
-        <Asset spinner />
       )}
     </Container>
   );

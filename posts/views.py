@@ -17,10 +17,9 @@ class CategoryList(generics.ListAPIView):
 
 class TopCategoriesList(APIView):
     def get(self, request, format=None):
-        # Annotiere jede Kategorie mit der Anzahl der zugehörigen Posts
         categories = Category.objects.annotate(
             num_posts=Count('posts')
-        ).order_by('-num_posts')[:5]  # Begrenze auf die Top 5
+        ).order_by('-num_posts')[:5]
         serializer = CategorySerializer(categories, many=True)
         return Response(serializer.data)
 
@@ -41,6 +40,7 @@ class PostList(generics.ListCreateAPIView):
         'owner__followed__owner__profile',
         'likes__owner__profile',
         'owner__profile',
+        'category',
     ]
     search_fields = [
         'owner__username',
