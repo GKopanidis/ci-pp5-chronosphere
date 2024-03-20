@@ -20,6 +20,7 @@ import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import UserTopCategories from "../categories/UserTopCategories";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -34,7 +35,9 @@ function ProfilePage() {
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
 
+
   useEffect(() => {
+    let isMounted = true;
     const fetchData = async () => {
       try {
         const [{ data: pageProfile }, { data: profilePosts }] =
@@ -52,7 +55,10 @@ function ProfilePage() {
         // console.log(err);
       }
     };
-    fetchData();
+    if (isMounted) fetchData();
+    return () => {
+      isMounted = false;
+    };
   }, [id, setProfileData]);
 
   const mainProfile = (
@@ -135,6 +141,7 @@ function ProfilePage() {
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
+        <UserTopCategories mobile />
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
@@ -148,6 +155,8 @@ function ProfilePage() {
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
+        <hr />
+        <UserTopCategories />
       </Col>
     </Row>
   );

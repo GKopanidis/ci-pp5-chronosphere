@@ -14,6 +14,8 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 function PostEditForm() {
   const [errors, setErrors] = useState({});
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const [postData, setPostData] = useState({
     title: "",
@@ -29,12 +31,20 @@ function PostEditForm() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get(`/posts/${id}/`);
-        const { title, content, image, is_owner } = data;
+        const { data: postData } = await axiosReq.get(`/posts/${id}/`);
+        const { title, content, image, is_owner, category } = postData;
 
-        is_owner ? setPostData({ title, content, image }) : history.push("/");
+        const { data: categoriesData } = await axiosReq.get("/categories/");
+        setCategories(categoriesData.results || []);
+
+        if (is_owner) {
+          setPostData({ title, content, image });
+          setSelectedCategory(category?.id || "");
+        } else {
+          history.push("/");
+        }
       } catch (err) {
-        // console.log(err);
+        console.log(err);
       }
     };
 
@@ -65,8 +75,12 @@ function PostEditForm() {
     formData.append("title", title);
     formData.append("content", content);
 
-    if (imageInput?.current?.files[0]) {
+    if (imageInput.current && imageInput.current.files[0]) {
       formData.append("image", imageInput.current.files[0]);
+    }
+
+    if (selectedCategory) {
+      formData.append("category_id", selectedCategory);
     }
 
     try {
@@ -112,6 +126,21 @@ function PostEditForm() {
           {message}
         </Alert>
       ))}
+      <Form.Group controlId="formCategory">
+        <Form.Label>Category</Form.Label>
+        <Form.Control
+          as="select"
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.target.value)}
+        >
+          <option value="">Select a category</option>
+          {categories.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.name}
+            </option>
+          ))}
+        </Form.Control>
+      </Form.Group>
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
