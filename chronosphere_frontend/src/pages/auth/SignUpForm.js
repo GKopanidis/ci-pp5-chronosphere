@@ -23,6 +23,7 @@ const SignUpForm = () => {
   const { username, password1, password2 } = signUpData;
 
   const [errors, setErrors] = useState({});
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const history = useHistory();
 
@@ -37,7 +38,10 @@ const SignUpForm = () => {
     event.preventDefault();
     try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
-      history.push("/signin");
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        history.push("/signin");
+      }, 3000);
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -48,7 +52,6 @@ const SignUpForm = () => {
       <Col className="my-auto py-2 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>sign up</h1>
-
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
               <Form.Label className="d-none">username</Form.Label>
@@ -66,7 +69,6 @@ const SignUpForm = () => {
                 {message}
               </Alert>
             ))}
-
             <Form.Group controlId="password1">
               <Form.Label className="d-none">Password</Form.Label>
               <Form.Control
@@ -83,7 +85,6 @@ const SignUpForm = () => {
                 {message}
               </Alert>
             ))}
-
             <Form.Group controlId="password2">
               <Form.Label className="d-none">Confirm password</Form.Label>
               <Form.Control
@@ -100,13 +101,18 @@ const SignUpForm = () => {
                 {message}
               </Alert>
             ))}
-
             <Button
               className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
               type="submit"
             >
               Sign up
             </Button>
+            {showSuccessMessage && (
+              <Alert variant="success" className="mt-3">
+                Registration successful! Redirecting to sign in...
+              </Alert>
+            )}
+
             {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">
                 {message}
@@ -127,7 +133,9 @@ const SignUpForm = () => {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={"https://res.cloudinary.com/ddmsxzjsc/image/upload/v1709309334/hero2_aez2xz.jpg"}
+          src={
+            "https://res.cloudinary.com/ddmsxzjsc/image/upload/v1709309334/hero2_aez2xz.jpg"
+          }
         />
       </Col>
     </Row>

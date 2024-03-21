@@ -17,6 +17,7 @@ import appStyles from "../../App.module.css";
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState({});
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const history = useHistory();
   const { id } = useParams();
@@ -42,9 +43,11 @@ const UsernameForm = () => {
         ...prevUser,
         username,
       }));
-      history.goBack();
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        history.goBack();
+      }, 3000);
     } catch (err) {
-      // console.log(err);
       setErrors(err.response?.data);
     }
   };
@@ -81,6 +84,11 @@ const UsernameForm = () => {
               save
             </Button>
           </Form>
+          {showSuccessMessage && (
+            <Alert variant="success">
+              Username has been successfully changed. Redirecting...
+            </Alert>
+          )}
         </Container>
       </Col>
     </Row>

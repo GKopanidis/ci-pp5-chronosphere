@@ -30,6 +30,7 @@ const ProfileEditForm = () => {
   const { name, content, image } = profileData;
 
   const [errors, setErrors] = useState({});
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   useEffect(() => {
     const handleMount = async () => {
@@ -73,7 +74,10 @@ const ProfileEditForm = () => {
         ...currentUser,
         profile_image: data.image,
       }));
-      history.goBack();
+      setShowSuccessMessage(true); // Zeige Erfolgsmeldung
+      setTimeout(() => {
+        history.goBack(); // Leite den Benutzer nach einer kurzen Verzögerung zurück
+      }, 3000);
     } catch (err) {
       // console.log(err);
       setErrors(err.response?.data);
@@ -112,6 +116,11 @@ const ProfileEditForm = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
+      {showSuccessMessage && (
+        <Alert variant="success" className="mt-3 text-center">
+          Profile successfully updated. Redirecting...
+        </Alert>
+      )}
       <Row>
         <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
           <Container className={appStyles.Content}>

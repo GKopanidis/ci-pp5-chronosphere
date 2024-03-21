@@ -18,6 +18,8 @@ import { useRedirect } from "../../hooks/useRedirect";
 function PostCreateForm() {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showCancelMessage, setShowCancelMessage] = useState(false);
 
   const [postData, setPostData] = useState({
     title: "",
@@ -46,6 +48,13 @@ function PostCreateForm() {
     }
   };
 
+  const handleCancel = () => {
+    setShowCancelMessage(true); // Zeige die "Cancel"-Meldung an
+    setTimeout(() => {
+      history.goBack(); // Navigiere nach 3 Sekunden zurück
+    }, 3000);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -56,13 +65,19 @@ function PostCreateForm() {
       formData.append("image", imageInput.current.files[0]);
     }
 
+    const categoryToUse = selectedCategory || "7";
+    formData.append("category_id", categoryToUse);
+
     if (selectedCategory) {
       formData.append("category_id", selectedCategory);
     }
 
     try {
       const { data } = await axiosReq.post("/posts/", formData);
-      history.push(`/posts/${data.id}`);
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        history.push(`/posts/${data.id}`);
+      }, 3000);
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
@@ -136,7 +151,7 @@ function PostCreateForm() {
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => history.goBack()}
+        onClick={handleCancel}
       >
         cancel
       </Button>
@@ -198,6 +213,17 @@ function PostCreateForm() {
         </Col>
         <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
           <Container className={appStyles.Content}>{textFields}</Container>
+          <br />
+          {showSuccessMessage && (
+            <Alert variant="success" className="mt-3 text-center">
+              Post successfully created! Redirecting...
+            </Alert>
+          )}
+          {showCancelMessage && (
+            <Alert variant="warning" className="mt-3 text-center">
+              Post creation canceled.
+            </Alert>
+          )}
         </Col>
       </Row>
     </Form>

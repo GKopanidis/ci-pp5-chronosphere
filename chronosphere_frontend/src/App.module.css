@@ -46,6 +46,10 @@ a:hover i {
   transition: color ease-in-out 0.3s;
 }
 
+.NavLink.active {
+  color: #c90f0f;
+}
+
 input[type="file"] {
   display: none;
 }

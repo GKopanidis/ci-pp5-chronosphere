@@ -26,6 +26,7 @@ function SignInForm() {
   const { username, password } = signInData;
 
   const [errors, setErrors] = useState({});
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const history = useHistory();
   const handleSubmit = async (event) => {
@@ -34,8 +35,11 @@ function SignInForm() {
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
-      setTokenTimestamp(data)
-      history.goBack();
+      setTokenTimestamp(data);
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        history.goBack();
+      }, 3000);
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -99,6 +103,11 @@ function SignInForm() {
               </Alert>
             ))}
           </Form>
+          {showSuccessMessage && (
+            <Alert variant="success" className="mt-3">
+              Login successful! Redirecting...
+            </Alert>
+          )}
         </Container>
         <Container className={`mt-3 ${appStyles.Content}`}>
           <Link className={styles.Link} to="/signup">
@@ -112,7 +121,9 @@ function SignInForm() {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={"https://res.cloudinary.com/ddmsxzjsc/image/upload/v1709309334/hero_omg14u.jpg"}
+          src={
+            "https://res.cloudinary.com/ddmsxzjsc/image/upload/v1709309334/hero_omg14u.jpg"
+          }
         />
       </Col>
     </Row>

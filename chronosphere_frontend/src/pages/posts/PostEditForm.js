@@ -14,6 +14,8 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 function PostEditForm() {
   const [errors, setErrors] = useState({});
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showCancelMessage, setShowCancelMessage] = useState(false);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
 
@@ -68,6 +70,14 @@ function PostEditForm() {
     }
   };
 
+  const handleCancel = () => {
+    // Setze die Stornierungsmeldung und navigiere zurück
+    setShowCancelMessage(true);
+    setTimeout(() => {
+      history.goBack();
+    }, 3000); // Navigiere zurück nach 3 Sekunden
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -85,7 +95,10 @@ function PostEditForm() {
 
     try {
       await axiosReq.put(`/posts/${id}/`, formData);
-      history.push(`/posts/${id}`);
+      setShowSuccessMessage(true); // Zeige Erfolgsmeldung an
+      setTimeout(() => {
+        history.push(`/posts/${id}`); // Navigiere nach dem Erfolg
+      }, 3000);
     } catch (err) {
       // console.log(err);
       if (err.response?.status !== 401) {
@@ -144,7 +157,7 @@ function PostEditForm() {
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => history.goBack()}
+        onClick={handleCancel}
       >
         cancel
       </Button>
@@ -191,7 +204,16 @@ function PostEditForm() {
           </Container>
         </Col>
         <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
+          <Container className={appStyles.Content}>
+            {textFields}
+          </Container>
+          <br />
+          {showSuccessMessage && (
+              <Alert variant="success">Post successfully updated!</Alert>
+            )}
+            {showCancelMessage && (
+              <Alert variant="warning">Update canceled!</Alert>
+            )}
         </Col>
       </Row>
     </Form>

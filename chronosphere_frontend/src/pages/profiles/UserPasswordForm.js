@@ -23,6 +23,7 @@ const UserPasswordForm = () => {
   const { new_password1, new_password2 } = userData;
 
   const [errors, setErrors] = useState({});
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const handleChange = (event) => {
     setUserData({
@@ -41,7 +42,10 @@ const UserPasswordForm = () => {
     event.preventDefault();
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
-      history.goBack();
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        history.goBack();
+      }, 3000);
     } catch (err) {
       // console.log(err);
       setErrors(err.response?.data);
@@ -96,6 +100,11 @@ const UserPasswordForm = () => {
               save
             </Button>
           </Form>
+          {showSuccessMessage && (
+          <Alert variant="success" className="mt-3">
+            Your password has been changed successfully. Redirecting...
+          </Alert>
+        )}
         </Container>
       </Col>
     </Row>
