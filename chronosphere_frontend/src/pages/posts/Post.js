@@ -23,6 +23,7 @@ const Post = (props) => {
     content,
     image,
     updated_at,
+    created_at,
     postPage,
     setPosts,
     category,
@@ -77,6 +78,18 @@ const Post = (props) => {
     }
   };
 
+  const handleCopyLink = () => {
+    const url = `${window.location.origin}/posts/${id}`;
+    navigator.clipboard.writeText(url).then(
+      () => {
+        alert("Post link copied to clipboard!");
+      },
+      (err) => {
+        console.error("Error copying link to clipboard", err);
+      }
+    );
+  };
+
   return (
     <Card className={styles.Post}>
       <Card.Body>
@@ -85,8 +98,11 @@ const Post = (props) => {
             <Avatar src={profile_image} height={55} />
             {owner}
           </Link>
-          <div className="d-flex align-items-center">
-            <span>{updated_at}</span>
+          <div className="d-flex align-items-center justify-content-end">
+          <div className="d-flex flex-column align-items-end mr-3">
+            <span>Last update: {updated_at}</span>
+            <span className="small text-muted">Created at: {created_at}</span>
+          </div>
             {is_owner && postPage && (
               <MoreDropdown
                 handleEdit={handleEdit}
@@ -138,10 +154,19 @@ const Post = (props) => {
             <i className="far fa-comments" />
           </Link>
           {comments_count}
+          <OverlayTrigger
+            placement="top"
+            overlay={<Tooltip>Copy link to clipboard</Tooltip>}
+          >
+            <span onClick={handleCopyLink}>
+              <i className="fa-solid fa-link" style={{ cursor: "pointer" }} />
+            </span>
+          </OverlayTrigger>
         </div>
       </Card.Body>
     </Card>
   );
+  
 };
 
 export default Post;
