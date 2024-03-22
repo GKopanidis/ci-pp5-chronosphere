@@ -13,14 +13,15 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import NotFound from "../../components/NotFound";
 
 function PostPage() {
   const { id } = useParams();
   const [post, setPost] = useState({ results: [] });
-
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const handleMount = async () => {
@@ -31,13 +32,19 @@ function PostPage() {
         ]);
         setPost({ results: [post] });
         setComments(comments);
+        setError(false);
       } catch (err) {
         // console.log(err);
+        setError(true);
       }
     };
 
     handleMount();
   }, [id]);
+  
+  if (error) {
+    return <NotFound />;
+  }
 
   return (
     <Row className="h-100">
@@ -78,8 +85,16 @@ function PostPage() {
               <span>No comments... yet!</span>
               <br />
               <span>
-                Please <a href="/signup" style={{ textDecoration: 'underline' }}>Sign up</a> or 
-                <a href="/signin" style={{ textDecoration: 'underline' }}> Sign In</a> to leave a comment.
+                Please{" "}
+                <a href="/signup" style={{ textDecoration: "underline" }}>
+                  Sign up
+                </a>{" "}
+                or
+                <a href="/signin" style={{ textDecoration: "underline" }}>
+                  {" "}
+                  Sign In
+                </a>{" "}
+                to leave a comment.
               </span>
             </div>
           )}
