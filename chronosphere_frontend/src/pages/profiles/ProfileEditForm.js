@@ -74,9 +74,9 @@ const ProfileEditForm = () => {
         ...currentUser,
         profile_image: data.image,
       }));
-      setShowSuccessMessage(true); // Zeige Erfolgsmeldung
+      setShowSuccessMessage(true);
       setTimeout(() => {
-        history.goBack(); // Leite den Benutzer nach einer kurzen Verzögerung zurück
+        history.goBack();
       }, 3000);
     } catch (err) {
       // console.log(err);

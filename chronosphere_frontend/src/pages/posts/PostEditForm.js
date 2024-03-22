@@ -71,11 +71,10 @@ function PostEditForm() {
   };
 
   const handleCancel = () => {
-    // Setze die Stornierungsmeldung und navigiere zurück
     setShowCancelMessage(true);
     setTimeout(() => {
       history.goBack();
-    }, 3000); // Navigiere zurück nach 3 Sekunden
+    }, 3000);
   };
 
   const handleSubmit = async (event) => {
@@ -95,9 +94,9 @@ function PostEditForm() {
 
     try {
       await axiosReq.put(`/posts/${id}/`, formData);
-      setShowSuccessMessage(true); // Zeige Erfolgsmeldung an
+      setShowSuccessMessage(true);
       setTimeout(() => {
-        history.push(`/posts/${id}`); // Navigiere nach dem Erfolg
+        history.push(`/posts/${id}`);
       }, 3000);
     } catch (err) {
       // console.log(err);
@@ -209,10 +208,10 @@ function PostEditForm() {
           </Container>
           <br />
           {showSuccessMessage && (
-              <Alert variant="success">Post successfully updated!</Alert>
+              <Alert variant="success">Post successfully updated! Redirecting...</Alert>
             )}
             {showCancelMessage && (
-              <Alert variant="warning">Update canceled!</Alert>
+              <Alert variant="warning">Update canceled! Redirecting...</Alert>
             )}
         </Col>
       </Row>

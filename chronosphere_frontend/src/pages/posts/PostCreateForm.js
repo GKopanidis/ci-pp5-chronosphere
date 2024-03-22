@@ -49,9 +49,9 @@ function PostCreateForm() {
   };
 
   const handleCancel = () => {
-    setShowCancelMessage(true); // Zeige die "Cancel"-Meldung an
+    setShowCancelMessage(true);
     setTimeout(() => {
-      history.goBack(); // Navigiere nach 3 Sekunden zurück
+      history.goBack();
     }, 3000);
   };
 
@@ -221,7 +221,7 @@ function PostCreateForm() {
           )}
           {showCancelMessage && (
             <Alert variant="warning" className="mt-3 text-center">
-              Post creation canceled.
+              Post creation canceled. Redirecting...
             </Alert>
           )}
         </Col>
