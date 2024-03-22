@@ -39,24 +39,42 @@ const NavBar = () => {
       <i className="far fa-plus-square"></i>Add post
     </NavLink>
   );
+
+  const adminPanelURL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:8000/admin"
+      : "https://ci-pp5-chronosphere-fae2dfb25e8d.herokuapp.com/admin/";
+
+  const adminPanelLink = currentUser?.is_superuser && (
+    <a
+      href={adminPanelURL}
+      className={styles.NavLink}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <i className="fa-solid fa-lock"></i> Admin
+    </a>
+  );
+
   const loggedInIcons = (
     <>
+      {currentUser?.is_superuser && adminPanelLink}
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/feed"
       >
-        <i className="fas fa-stream"></i>Feed
+        <i className="fas fa-stream"></i> Feed
       </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/liked"
       >
-        <i className="fas fa-heart"></i>Liked
+        <i className="fas fa-heart"></i> Liked
       </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-        <i className="fas fa-sign-out-alt"></i>Sign out
+        <i className="fas fa-sign-out-alt"></i> Sign out
       </NavLink>
       <NavLink
         className={styles.NavLink}
@@ -66,6 +84,7 @@ const NavBar = () => {
       </NavLink>
     </>
   );
+
   const loggedOutIcons = (
     <>
       <NavLink
@@ -73,14 +92,14 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/signin"
       >
-        <i className="fas fa-sign-in-alt"></i>Sign in
+        <i className="fas fa-sign-in-alt"></i> Sign in
       </NavLink>
       <NavLink
         to="/signup"
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <i className="fas fa-user-plus"></i>Sign up
+        <i className="fas fa-user-plus"></i> Sign up
       </NavLink>
     </>
   );
@@ -94,8 +113,8 @@ const NavBar = () => {
     >
       <Container>
         <NavLink to="/">
-        <Navbar.Brand>
-            <img src={logo} alt="logo" height="60" />{" "}
+          <Navbar.Brand>
+            <img src={logo} alt="logo" height="60" />
             <span className={styles.chrono}>Chrono</span>
             <span className={styles.sphere}>Sphere</span>
           </Navbar.Brand>
@@ -114,9 +133,8 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/"
             >
-              <i className="fas fa-home"></i>Home
+              <i className="fas fa-home"></i> Home
             </NavLink>
-
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
@@ -124,5 +142,4 @@ const NavBar = () => {
     </Navbar>
   );
 };
-
 export default NavBar;
