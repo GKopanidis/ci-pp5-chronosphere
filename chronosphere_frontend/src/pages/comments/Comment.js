@@ -117,7 +117,7 @@ const Comment = (props) => {
               <>
                 <p className={styles.Content}>{content}</p>
                 <div className={styles.CommentActions}>
-                  {!isReply && is_main_comment && (
+                  {!isReply && is_main_comment && currentUser && (
                     <button
                       className={`btn btn-link ${styles.replyButton}`}
                       onClick={() => setShowReplyForm(!showReplyForm)}

@@ -52,6 +52,12 @@ function PostPage() {
         <PopularProfiles mobile />
         <Post {...post.results[0]} setPosts={setPost} postPage />
         <Container className={appStyles.Content}>
+          {!currentUser && (
+            <div className="mb-3">
+              Please <a href="/signin" style={{ textDecoration: "underline" }}>Sign In</a> or{" "}
+              <a href="/signup" style={{ textDecoration: "underline" }}>Sign Up</a> to leave a comment.
+            </div>
+          )}
           {currentUser ? (
             <CommentCreateForm
               profile_id={currentUser.profile_id}
@@ -97,7 +103,7 @@ function PostPage() {
                   {" "}
                   Sign In
                 </a>{" "}
-                to leave a comment.
+                to be the first to comment!
               </span>
             </div>
           )}
