@@ -41,7 +41,7 @@ function PostPage() {
 
     handleMount();
   }, [id]);
-  
+
   if (error) {
     return <NotFound />;
   }
@@ -65,14 +65,17 @@ function PostPage() {
           ) : null}
           {comments.results.length ? (
             <InfiniteScroll
-              children={comments.results.map((comment) => (
-                <Comment
-                  key={comment.id}
-                  {...comment}
-                  setPost={setPost}
-                  setComments={setComments}
-                />
-              ))}
+              children={comments.results
+                .filter((comment) => comment.is_main_comment)
+                .map((comment) => (
+                  <Comment
+                    key={comment.id}
+                    {...comment}
+                    setPost={setPost}
+                    setComments={setComments}
+                    is_main_comment={comment.is_main_comment}
+                  />
+                ))}
               dataLength={comments.results.length}
               loader={<Asset spinner />}
               hasMore={!!comments.next}

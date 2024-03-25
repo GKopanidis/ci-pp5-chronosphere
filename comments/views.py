@@ -13,10 +13,15 @@ class CommentList(generics.ListCreateAPIView):
     serializer_class = CommentSerializer
     queryset = Comment.objects.all()
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['post']
+    filterset_fields = ['post', 'parent']
 
     def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+        parent_id = self.request.data.get('parent')
+        if parent_id is not None:
+            parent = Comment.objects.get(id=parent_id)
+            serializer.save(owner=self.request.user, parent=parent)
+        else:
+            serializer.save(owner=self.request.user)
 
 
 class CommentDetail(generics.RetrieveUpdateDestroyAPIView):

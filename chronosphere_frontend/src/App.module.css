@@ -1,11 +1,14 @@
 .App {
+  display: flex;
   font-family: "DM Sans", sans-serif;
   background-color: #f8f8f8;
   min-height: 100vh;
 }
 
 .Main {
-  padding-top: 85px;
+  flex: 1;
+  padding-top: 90px;
+  padding-bottom: 70px;
 }
 
 .Content {
@@ -13,6 +16,7 @@
   padding: 10px;
   border-radius: 10px;
   border: 1px solid #dadadf;
+  margin-bottom: 20px;
 }
 
 .FillerImage {
