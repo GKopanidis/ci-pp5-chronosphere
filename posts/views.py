@@ -11,12 +11,28 @@ from .serializers import PostSerializer, CategorySerializer
 
 
 class CategoryList(generics.ListAPIView):
+    """
+    View for listing categories.
+    """
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
 
 class TopCategoriesList(APIView):
+    """
+    View for listing top categories.
+    """
     def get(self, request, format=None):
+        """
+        Method to handle GET requests for top categories.
+
+        Args:
+            request: The request object.
+            format: The format of the response data.
+
+        Returns:
+            Response: Response object containing top categories data.
+        """
         categories = Category.objects.annotate(
             num_posts=Count('posts')
         ).order_by('-num_posts')[:5]
@@ -25,6 +41,9 @@ class TopCategoriesList(APIView):
 
 
 class PostList(generics.ListCreateAPIView):
+    """
+    View for listing and creating posts.
+    """
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Post.objects.annotate(
@@ -53,10 +72,22 @@ class PostList(generics.ListCreateAPIView):
     ]
 
     def perform_create(self, serializer):
+        """
+        Method to perform creation of a new post.
+
+        Args:
+            serializer: The serializer instance.
+
+        Returns:
+            None
+        """
         serializer.save(owner=self.request.user)
 
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    View for retrieving, updating and deleting posts.
+    """
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Post.objects.annotate(

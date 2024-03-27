@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <Container>
-        <span>© 2024 ChronoSphere. For educational purposes only.</span>
+        <span>&copy; 2024 ChronoSphere. For educational purposes only.</span>
         <div className={styles.links}>
           <a href="https://github.com/GKopanidis" target="_blank" rel="noopener noreferrer">
             <i className="fa-brands fa-github"></i> GitHub

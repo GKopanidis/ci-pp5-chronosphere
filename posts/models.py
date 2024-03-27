@@ -5,9 +5,18 @@ from django.contrib.auth.models import User
 
 
 class Category(models.Model):
+    """
+    Model representing a category for posts.
+    """
     name = models.CharField(max_length=100, unique=True)
 
     def __str__(self):
+        """
+        String representation of the category object.
+
+        Returns:
+            str: The name of the category.
+        """
         return self.name
 
     class Meta:
@@ -15,6 +24,9 @@ class Category(models.Model):
 
 
 class Post(models.Model):
+    """
+    Model representing a post.
+    """
     image_filter_choices = [
         ('_1977', '1977'),
         ('brannan', 'Brannan'),
@@ -49,4 +61,10 @@ class Post(models.Model):
         ordering = ['-created_at']
 
     def __str__(self):
+        """
+        String representation of the post object.
+
+        Returns:
+            str: A string containing the ID and title of the post.
+        """
         return f'{self.id} {self.title}'

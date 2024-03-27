@@ -8,6 +8,12 @@ from .settings import (
 
 @api_view()
 def root_route(request):
+    """
+    Endpoint for the root route of the API.
+
+    :param request: The HTTP request object.
+    :return: A Response containing a welcome message.
+    """
     return Response({
         "message": "Welcome to the Chronosphere DRF API!"
     })
@@ -15,6 +21,14 @@ def root_route(request):
 
 @api_view(['POST'])
 def logout_route(request):
+    """
+    Endpoint for user logout.
+
+    Clears the JWT authentication and refresh cookies.
+
+    :param request: The HTTP request object.
+    :return: A Response with cleared authentication cookies.
+    """
     response = Response()
     response.set_cookie(
         key=JWT_AUTH_COOKIE,

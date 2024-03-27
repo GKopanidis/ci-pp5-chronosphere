@@ -1,17 +1,18 @@
-"""chronosphere_drf_api URL Configuration
+"""URL Configuration for Chronosphere DRF API
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+This module defines URL patterns for the Chronosphere DRF API.
+It includes routes for:
+- Rendering the index page
+- Admin panel
+- Authentication and authorization endpoints using Django Rest Framework
+- User logout endpoint
+- User registration and authentication endpoints using dj-rest-auth
+- Profiles, posts, comments, likes, and followers endpoints
+
+Additionally, it includes a handler for 404 errors, rendering the index page.
+
+For more information, please refer to the Django documentation:
+https://docs.djangoproject.com/en/3.2/topics/http/urls/
 """
 from django.contrib import admin
 from django.urls import path, include

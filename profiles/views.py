@@ -13,6 +13,20 @@ from .serializers import ProfileSerializer
 
 
 class ProfileList(generics.ListAPIView):
+    """
+    API endpoint for listing profiles.
+
+    Retrieves a list of profiles with annotated counts for posts, followers,
+    and following.
+
+    Supports filtering and ordering by various fields.
+
+    Args:
+        generics.ListAPIView: ListAPIView subclass for listing profiles.
+
+    Returns:
+        Response: A response containing serialized profile data.
+    """
     queryset = Profile.objects.annotate(
         posts_count=Count('owner__post', distinct=True),
         followers_count=Count('owner__followed', distinct=True),
@@ -36,6 +50,19 @@ class ProfileList(generics.ListAPIView):
 
 
 class ProfileDetail(generics.RetrieveUpdateAPIView):
+    """
+    API endpoint for retrieving and updating a profile.
+
+    Retrieves details of a specific profile and allows updates if the request
+    user is the owner.
+
+    Args:
+        generics.RetrieveUpdateAPIView: RetrieveUpdateAPIView subclass for
+        retrieving and updating profiles.
+
+    Returns:
+        Response: A response containing serialized profile data.
+    """
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Profile.objects.annotate(
         posts_count=Count('owner__post', distinct=True),
@@ -46,10 +73,25 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
 
 
 class UserTopCategories(APIView):
+    """
+    API endpoint for retrieving a user's top categories.
+
+    Retrieves the top categories of posts created by the request user.
+
+    Args:
+        APIView: APIView subclass for handling HTTP GET requests.
+
+    Returns:
+        Response: A response containing the top categories data.
+    """
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
         user_posts = Post.objects.filter(owner=request.user)
-        top_categories = user_posts.values('category__name', 'category__id').annotate(
-            total=Count('id')).order_by('-total')[:5]
+        top_categories = (
+            user_posts
+            .values('category__name', 'category__id')
+            .annotate(total=Count('id'))
+            .order_by('-total')[:5]
+        )
         return Response(top_categories)

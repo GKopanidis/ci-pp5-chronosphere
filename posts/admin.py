@@ -6,6 +6,9 @@ from .models import Post, Category
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for the Post model.
+    """
     list_display = ['title', 'owner', 'created_at', 'updated_at', 'category']
     search_fields = ['title', 'owner__username', 'category__name']
     list_filter = ['created_at', 'updated_at', 'category']
@@ -13,4 +16,7 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for the Category model.
+    """
     list_display = ['name']
