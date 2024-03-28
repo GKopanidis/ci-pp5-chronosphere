@@ -51,9 +51,9 @@ ChronoSphere is a dynamic social media platform designed to connect users from a
 
 The platform stands out with its intuitive interface, making it easy to navigate and discover new content. From exciting posts to the latest likes and most-followed profiles, ChronoSphere brings the world to your fingertips. Featuring capabilities such as adding posts, liking, commenting, and customizing your feed to suit your preferences, ChronoSphere provides a personalized and interactive experience.
 
-![Mockup HW|Blog](docs/readme_images/Mockup_ChronoSphere.png)
+![ChronoSphere Mockup](docs/readme_images/Mockup_ChronoSphere.png)
 
-[HW|Blog live site](https://ci-pp5-chronosphere-fae2dfb25e8d.herokuapp.com/)
+[ChronoSphere live site](https://ci-pp5-chronosphere-fae2dfb25e8d.herokuapp.com/)
 
 [Back to Top](#index---table-of-contents)
 
