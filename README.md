@@ -192,7 +192,6 @@ Prioritizing ease of navigation, ChronoSphere is equipped with a straightforward
 
 - **Displaying Post Count for Top Profiles** IAs a user viewing the top profiles, I want to see the number of posts each top user has made so that I can gauge their activity level and contribution to the community.
 
-
 - **Managing Favorites for Quick Access** As a user, I want to add posts to a favorites list and have a dedicated tab for my favorites so that I can quickly access posts I've marked as interesting or important.
 
 - **Optimize image uploads by users:** Every image, if not already in WEBP format, should be automatically converted to WEBP to prevent any deterioration in page loading time.
