@@ -99,10 +99,10 @@ const Post = (props) => {
             {owner}
           </Link>
           <div className="d-flex align-items-center justify-content-end">
-          <div className="d-flex flex-column align-items-end mr-3">
-            <span>Last update: {updated_at}</span>
-            <span className="small text-muted">Created at: {created_at}</span>
-          </div>
+            <div className="d-flex flex-column align-items-end mr-3">
+              <span>Last update: {updated_at}</span>
+              <span className="small text-muted">Created at: {created_at}</span>
+            </div>
             {is_owner && postPage && (
               <MoreDropdown
                 handleEdit={handleEdit}
@@ -150,10 +150,17 @@ const Post = (props) => {
             </OverlayTrigger>
           )}
           {likes_count}
-          <Link to={`/posts/${id}/`}>
-            <i className="far fa-comments" />
-          </Link>
-          {comments_count}
+          <OverlayTrigger
+            placement="top"
+            overlay={<Tooltip>View comments</Tooltip>}
+          >
+            <span>
+              <Link to={`/posts/${id}/`}>
+                <i className="far fa-comments" />
+                {comments_count}
+              </Link>
+            </span>
+          </OverlayTrigger>
           <OverlayTrigger
             placement="top"
             overlay={<Tooltip>Copy link to clipboard</Tooltip>}
@@ -166,7 +173,6 @@ const Post = (props) => {
       </Card.Body>
     </Card>
   );
-  
 };
 
 export default Post;
