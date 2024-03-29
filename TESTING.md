@@ -59,11 +59,11 @@ In addition to the accessibility tests, several other tests were conducted to en
 
 ### W3C Testing
 
-...
+<img src="docs/readme_images/w3c.png" width="75%" height="75%">
 
-### JSHint Testing
+### ESLint Testing
 
-...
+<img src="docs/readme_images/eslint.png" width="75%" height="75%">
 
 ### PEP8 Testing
 
