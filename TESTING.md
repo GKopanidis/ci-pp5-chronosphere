@@ -1,3 +1,14 @@
+# Index - Table of Contents
+
+- [Manual testing](#manual-testing)
+- [Aditional validating testing](#additional-validation-testing)
+  - [W3C Testing](#w3c-testing)
+  - [JSHint Testing](#jshint-testing)
+  - [PEP8 Testing](#pep8-testing)
+- [Tested Browser](#tested-browser)
+
+## Manual testing
+
 | Feature                                                         | Expectation                                                                                       | Action                                                        | Result |
 |-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------|---------------------------------------------------------------|--------|
 | Navbar for non-logged-in users                                  | Show "Home", "Sign in", "Sign Up" leading to the corresponding pages                             | Navigate through Navbar                                       |    ✔    |
@@ -39,6 +50,26 @@
 | Change Password functionality                                   | Password change is functional, with a notice if passwords do not match, cancel returns to profile | Attempt to change password                                    |   ✔     |
 | Footer links interaction                                        | Links open correctly in a new browser page                                                       | Click on footer links                                         |    ✔    |
 
+
+
+## Additional Validation Testing
+
+In addition to the accessibility tests, several other tests were conducted to ensure the code quality and standard compliance of the project.
+
+
+### W3C Testing
+
+...
+
+### JSHint Testing
+
+...
+
+### PEP8 Testing
+
+Python code was analyzed using PEP8 and passed without any remarks.
+
+  <img src="docs/readme_images/pep8_drf_api.png" width="75%" height="75%">
 
 ## Tested Browser
    - Latest versions:
