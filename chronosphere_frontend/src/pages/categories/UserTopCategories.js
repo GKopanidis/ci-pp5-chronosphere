@@ -74,7 +74,9 @@ const UserTopCategories = ({ mobile }) => {
           )}
         </>
       ) : (
-        <div>You haven&apos;t posted in any categories yet.</div>
+        <div>Your Top 5 Categories are not available.
+          You haven&apos;t posted in any categories yet.
+        </div>
       )}
     </Container>
   );
