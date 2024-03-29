@@ -5,6 +5,7 @@
   - [W3C Testing](#w3c-testing)
   - [JSHint Testing](#jshint-testing)
   - [PEP8 Testing](#pep8-testing)
+- [Lighthouse Report](#light-house-report)
 - [Tested Browser](#tested-browser)
 
 ## Manual testing
@@ -70,6 +71,17 @@ In addition to the accessibility tests, several other tests were conducted to en
 Python code was analyzed using PEP8 and passed without any remarks.
 
   <img src="docs/readme_images/pep8_drf_api.png" width="75%" height="75%">
+
+
+## Light House Report
+
+  <img src="docs/readme_images/Lighthouse.png" width="75%" height="75%">
+
+  *Since the images are not yet optimized on the server side, the performance score is not optimal, however, this will be fixed in a future update. 
+  
+  The fix can be accessed here: (Thank you to my mentor [Gareth-McGirr](https://github.com/Gareth-McGirr) who provided me the fix):
+  
+  [Resizing images and converting formats in Django](https://www.codu.co/articles/resizing-images-and-converting-formats-in-django-1rj9kdho)
 
 ## Tested Browser
    - Latest versions:

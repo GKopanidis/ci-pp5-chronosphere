@@ -432,6 +432,6 @@ The live link can be found here: [Live Site](https://ci-pp5-chronosphere-fae2dfb
 
 ### Acknowledgments
 
-- Thank you to my mentor [Gareth-McGirr](https://github.com/Gareth-McGirr) who provided me with lots of pointers on resources to help on my 4th project!
+- Thank you to my mentor [Gareth-McGirr](https://github.com/Gareth-McGirr) who provided me with lots of pointers on resources to help on my 5th project!
 
 [Back to Top](#index---table-of-contents)
