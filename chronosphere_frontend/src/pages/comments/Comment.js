@@ -48,7 +48,7 @@ const Comment = (props) => {
       );
       setComments(updatedComments);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -75,7 +75,7 @@ const Comment = (props) => {
       removeCommentFromState(id);
       updateComments();
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     } finally {
       if (isMounted) setIsDeleting(false);
     }

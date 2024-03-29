@@ -46,7 +46,7 @@ const PostEditForm = () => {
           history.push("/");
         }
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

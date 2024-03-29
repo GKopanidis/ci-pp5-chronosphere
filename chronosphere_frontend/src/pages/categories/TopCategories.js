@@ -14,7 +14,7 @@ const TopCategories = ({ mobile }) => {
         const { data } = await axiosReq.get("/top-categories/");
         setTopCategories(data);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

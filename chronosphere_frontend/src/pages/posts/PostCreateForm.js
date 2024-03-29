@@ -79,7 +79,7 @@ const PostCreateForm = () => {
         history.push(`/posts/${data.id}`);
       }, 1000);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -95,7 +95,7 @@ const PostCreateForm = () => {
         const { data } = await axiosReq.get("/categories/");
         setCategories(data.results || []);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     fetchCategories();

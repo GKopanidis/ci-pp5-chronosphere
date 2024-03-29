@@ -27,7 +27,7 @@ const UserTopCategories = ({ mobile }) => {
         );
         setTopCategories(filteredCategories);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       } finally {
         setIsLoading(false);
       }
