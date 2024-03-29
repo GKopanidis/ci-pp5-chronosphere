@@ -11,12 +11,16 @@ Dive into the world of ChronoSphere, where every second counts and every moment 
   - [Site Goals](#site-goals)
 
 - [Overview](#overview)
-  - [Existing Features](#existing-features)
+  - [Existing Features](#existing-features-for-users-on-chronosphere)
   - [Features Planned](#features-planned)
 
 - [Bugs](#bugs)
   - [Fixed Bugs](#fixed-bugs)
   - [Unfixed Bugs](#unfixed-bugs)
+
+- [Design](#design)
+  - [Wireframes](#wireframes)
+  - [ERD](#erd)
 
 - [Testing](#testing)
 
@@ -25,24 +29,20 @@ Dive into the world of ChronoSphere, where every second counts and every moment 
   - [CRUD on Posts and Comments](#crud-on-posts-and-comments)
   - [Streamlined and Intuitive Interface](#streamlined-and-intuitive-interface)
 
-- [Design](#design)
-  - [Wireframes](#wireframes)
-  - [ERD](#erd)
-
 - [Technolgies](#technologies)
 
 - [Deployment](#deployment)
-   - [Version Control](#version-control)
-   - [Heroku Deployment](#heroku-deployment)
-   - [Creating a Database](#creating-a-database)
-   - [The env.py File](#the-envpy-file)
-   - [Run Locally](#run-locally)
-   - [Fork Project](#fork-project)
+  - [Version Control](#version-control)
+  - [Creating a Database](#creating-a-database)
+  - [The env.py File](#the-envpy-file)
+  - [Run Locally](#run-locally)
+  - [Fork Project](#fork-project)
+  - [Heroku Deployment](#heroku-deployment)
       
 - [Credits](#credits)
 
-   - [Media](#media)
-   - [Acknowledgments](#acknowledgments)
+  - [Media](#media)
+  - [Acknowledgments](#acknowledgments)
 
 
 ## **Explore Our Content:**
@@ -67,8 +67,9 @@ The development of HW|Blog followed an Agile methodology, utilizing a Kanban boa
 
 [Link to the board](https://github.com/users/GKopanidis/projects/6)
 
-The board was divided into three primary columns:
+The board was divided into threefour columns:
 
+- **Planned:** Tasks that are planned for the future.
 - **Todo:** Tasks that are planned but not yet in progress.
 - **In Progress:** Tasks currently being worked on.
 - **Done:** Tasks that have been completed.
@@ -104,6 +105,7 @@ This Agile planning setup contributed significantly to the efficient and focused
 - **Expand:** Grow the ChronoSphere user base by reaching out to educational institutions, history bloggers, and social media platforms to promote the site and its resources.
 - **Support:** Offer comprehensive support and resources to users and contributors, including guides on how to use the site, contribute content, and engage with the community. Provide clear channels for feedback and suggestions to ensure the site meets the needs and expectations of its users.
 
+## Overview
 
 ### Existing Features for Users on ChronoSphere
 
@@ -167,23 +169,6 @@ This Agile planning setup contributed significantly to the efficient and focused
 - **Continuous Innovation:** Commitment to introducing new features and content based on user feedback and technological advancements to keep the platform fresh and engaging.
 
 
-## Technical Features
-
-### Responsive Design
-
-ChronoSphere was designed with adaptability in mind to ensure a seamless user experience across different devices, such as desktop computers, tablets, and mobile phones.
-
-### CRUD on Posts, Comments and Profiles
-
-The platform supports comprehensive CRUD (Create, Read, Update, Delete) actions for posts, comments and profiles created by users.
-
-### Streamlined and Intuitive Interface
-
-Prioritizing ease of navigation, ChronoSphere is equipped with a straightforward and intuitive layout, allowing users to explore the site effortlessly.
-
-[Back to Top](#index---table-of-contents)
-
-
 ### Features Planned
 
 <img src="docs/readme_images/Planned_Features.png" width="75%" height="75%">
@@ -211,14 +196,41 @@ Prioritizing ease of navigation, ChronoSphere is equipped with a straightforward
 [Back to Top](#index---table-of-contents)
 
 
-
 ## Design
-----------------------------
+
+### Wireframes
+
+<img src="docs/readme_images/ChronoSphere_Wireframe.png" width="75%" height="75%">
+
+### ERD
+
+- Entity relationship diagram was created using [DBVisualizer](https://www.dbvis.com/) and shows the schemas for each of the models and how they are related.
+
+<img src="docs/readme_images/ERD.png" width="75%" height="75%">
 
 
+## Testing
+
+[Link to separate testing readme](https://github.com/GKopanidis/ci-pp5-chronosphere/blob/main/TESTING.md)
 
 
-## Technolgies
+## Technical Features
+
+### Responsive Design
+
+ChronoSphere was designed with adaptability in mind to ensure a seamless user experience across different devices, such as desktop computers, tablets, and mobile phones.
+
+### CRUD on Posts, Comments and Profiles
+
+The platform supports comprehensive CRUD (Create, Read, Update, Delete) actions for posts, comments and profiles created by users.
+
+### Streamlined and Intuitive Interface
+
+Prioritizing ease of navigation, ChronoSphere is equipped with a straightforward and intuitive layout, allowing users to explore the site effortlessly.
+
+[Back to Top](#index---table-of-contents)
+
+## Technologies
 
 - React
     - React was employed for creating interactive user interfaces and single-page applications within the site to provide a rich user experience.
@@ -286,6 +298,86 @@ Prioritizing ease of navigation, ChronoSphere is equipped with a straightforward
 [Back to Top](#index---table-of-contents)
 
 
+## Deployment
+
+### Version Control
+
+The site was created using the Visual Studio Code editor and pushed to github to the remote repository ‘ci-pp4-hwblog’.
+
+The following git commands were used throughout development to push code to the remote repo:
+
+```git add <file>``` - This command was used to add the file(s) to the staging area before they are committed.
+
+```git commit -m “commit message”``` - This command was used to commit changes to the local repository queue ready for the final step.
+
+```git push``` - This command was used to push all committed code to the remote repository on github.
+
+### Creating a Database
+
+- Log into ElephantSQL.com and access your dashboard.
+- Click "Create New Instance".
+- Set up a plan, name it, and select the closest data center.
+- Click "Review" and "Create instance".
+- Return to the ElephantSQL dashboard and copy the database URL.
+
+### The env.py File
+
+- Create an env.py file and ensure it's in .gitignore.
+- Add DATABASE_URL, ALLOWED_HOST, CLIENT_ORIGING and SECRET_KEY to env.py.
+- If using Cloudinary, add CLOUDINARY_URL to env.py.
+
+### Run Locally
+
+Navigate to the GitHub Repository you want to clone to use locally:
+
+- Click on the code drop down button
+- Click on HTTPS
+- Copy the repository link to the clipboard
+- Open your IDE of choice (git must be installed for the next steps)
+- Type git clone copied-git-url into the IDE terminal
+
+The project will now have been cloned on your local machine for use.
+
+### Fork Project
+
+Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
+
+- Navigate to the GitHub Repository you want to fork.
+
+- On the top right of the page under the header, click the fork button.
+
+- This will create a duplicate of the full project in your GitHub Repository.
+
+[Back to Top](#index---table-of-contents)
+
+### Heroku Deployment
+
+The site was deployed to Heroku. The steps to deploy are as follows:
+
+- Navigate to heroku and create an account
+- Click the new button in the top right corner
+- Select create new app
+- Enter app name
+- Select region and click create app
+- Go to the settings tab and then click reveal config vars
+- Add the following config vars:
+  - SECRET_KEY: (Your secret key)
+  - DATABASE_URL: (This should already exist with add on of postgres)
+  - CLOUNDINARY_URL: (cloudinary api url)
+  - ALLOWED_HOST: (URL of your heroku app. **Remove** the **https://** and the **trailing slash**) 
+  - CLIENT_ORIGIN: (URL of your heroku app. **Keep** the **https://** but **remove** the trailing slash**)
+  - DISABLE_COLLECTSTATIC: (1)
+- Click the deploy tab
+- Scroll down to Connect to GitHub and sign in / authorize when prompted
+- In the search box, find the repository you want to deploy and click connect
+- Scroll down to Manual deploy and choose the main branch
+- Click deploy
+
+The app should now be deployed.
+
+The live link can be found here: [Live Site](https://ci-pp5-chronosphere-fae2dfb25e8d.herokuapp.com/)
+
+
 ## Credits
 
 [Moments](https://github.com/GKopanidis/ci-pp5-moments-wt "Moments") and [Django Rest Framework API](https://github.com/GKopanidis/ci-pp5-wt-drf "DRF API")
@@ -315,27 +407,27 @@ Prioritizing ease of navigation, ChronoSphere is equipped with a straightforward
 
 - Default Profile Image: 
  
-    <a href="https://www.freepik.com/free-vector/fun-variety-silhouette-avatars_1292961.htm#fromView=search&page=3&position=7&uuid=368e1503-c4d1-4f74-a32c-e2e8f5356c22">Image by freepik</a>
+  <a href="https://www.freepik.com/free-vector/fun-variety-silhouette-avatars_1292961.htm#fromView=search&page=3&position=7&uuid=368e1503-c4d1-4f74-a32c-e2e8f5356c22">Image by freepik</a>
    
 - Default Post Image:
    
-    <a href="https://www.freepik.com/free-vector/image-folder-concept-illustration_4957183.htm#fromView=search&page=1&position=26&uuid=6996ab77-ae4c-4ed8-8b0f-878b05d64486">Image by storyset on Freepik</a>
+  <a href="https://www.freepik.com/free-vector/image-folder-concept-illustration_4957183.htm#fromView=search&page=1&position=26&uuid=6996ab77-ae4c-4ed8-8b0f-878b05d64486">Image by storyset on Freepik</a>
     
 - NoResults Image:
   
-    <a href="https://www.freepik.com/free-vector/detective-following-footprints-concept-illustration_82648093.htm#fromView=search&page=2&position=35&uuid=3c5be644-3a4b-44c3-9288-037feb6d23d9">Image by storyset on Freepik</a>
+  <a href="https://www.freepik.com/free-vector/detective-following-footprints-concept-illustration_82648093.htm#fromView=search&page=2&position=35&uuid=3c5be644-3a4b-44c3-9288-037feb6d23d9">Image by storyset on Freepik</a>
     
 - Sign Up Image:
    
-    <a href="https://www.freepik.com/free-vector/mobile-login-concept-illustration_4957136.htm#fromView=search&page=1&position=1&uuid=9d80e13c-1bbe-4e4d-84ae-2d1b2e0a9c70">Image by storyset on Freepik</a>
+  <a href="https://www.freepik.com/free-vector/mobile-login-concept-illustration_4957136.htm#fromView=search&page=1&position=1&uuid=9d80e13c-1bbe-4e4d-84ae-2d1b2e0a9c70">Image by storyset on Freepik</a>
     
 - Upload Image: 
 
-    provided through CodeInstitute Walkthrough project
+  provided through CodeInstitute Walkthrough project
     
-- ChronoSphere Logo 
+- ChronoSphere Logo:
 
-    AI generated
+  AI generated
    
 
 ### Acknowledgments
