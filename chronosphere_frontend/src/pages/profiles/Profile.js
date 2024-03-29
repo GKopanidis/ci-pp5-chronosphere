@@ -15,14 +15,19 @@ const Profile = (props) => {
   const { handleFollow, handleUnfollow } = useSetProfileData();
 
   return (
-    <div className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}>
+    <div
+      className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}
+    >
       <Link to={`/profiles/${id}`} className="align-self-center">
         <Avatar src={image} height={imageSize} />
       </Link>
       <div className={`mx-2 ${styles.WordBreak}`}>
-      <Link to={`/profiles/${id}`} className={`${styles.WordBreak} ${styles.profileLink}`}>
-        <strong>{owner}</strong>
-      </Link>
+        <Link
+          to={`/profiles/${id}`}
+          className={`${styles.WordBreak} ${styles.profileLink}`}
+        >
+          <strong>{owner}</strong>
+        </Link>
       </div>
       {!mobile && currentUser && !is_owner && (
         <div className={`text-right ml-auto`}>

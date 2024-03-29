@@ -77,7 +77,7 @@ const ProfileEditForm = () => {
       setShowSuccessMessage(true);
       setTimeout(() => {
         history.goBack();
-      }, 3000);
+      }, 1000);
     } catch (err) {
       // console.log(err);
       setErrors(err.response?.data);

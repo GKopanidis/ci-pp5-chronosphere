@@ -22,7 +22,7 @@ import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import UserTopCategories from "../categories/UserTopCategories";
 
-function ProfilePage() {
+const ProfilePage = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profilePosts, setProfilePosts] = useState({ results: [] });
 
@@ -34,7 +34,6 @@ function ProfilePage() {
 
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
-
 
   useEffect(() => {
     let isMounted = true;
@@ -116,7 +115,7 @@ function ProfilePage() {
   const mainProfilePosts = (
     <>
       <hr />
-      <p className="text-center">{profile?.owner}'s posts</p>
+      <p className="text-center">{profile?.owner}&apos;s posts</p>
       <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll

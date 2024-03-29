@@ -23,14 +23,22 @@ const TopCategories = ({ mobile }) => {
 
   return (
     <Container
-      className={`${appStyles.Content} ${mobile && "d-lg-none text-center mb-3"}`}
+      className={`${appStyles.Content} ${
+        mobile && "d-lg-none text-center mb-3"
+      }`}
     >
       <p>Top 5 Categories</p>
       {mobile ? (
         <div className="d-flex flex-wrap justify-content-around">
-          <NavLink activeStyle={{ color:'#c90f0f' }}exact to="/">All Categories</NavLink>
+          <NavLink activeStyle={{ color: "#c90f0f" }} exact to="/">
+            All Categories
+          </NavLink>
           {topCategories.map((category) => (
-            <NavLink key={category.id} to={`/categories/${category.id}/posts`} activeClassName="activeLink">
+            <NavLink
+              key={category.id}
+              to={`/categories/${category.id}/posts`}
+              activeClassName="activeLink"
+            >
               {category.name}
             </NavLink>
           ))}
@@ -38,12 +46,17 @@ const TopCategories = ({ mobile }) => {
       ) : (
         <>
           <div className="mb-2">
-            <NavLink activeStyle={{ color:'#c90f0f' }} exact to="/">All Categories</NavLink>
+            <NavLink activeStyle={{ color: "#c90f0f" }} exact to="/">
+              All Categories
+            </NavLink>
           </div>
           {topCategories.length ? (
             topCategories.map((category) => (
               <div key={category.id} className="mb-2">
-                <NavLink activeStyle={{ color:'#c90f0f' }} to={`/categories/${category.id}/posts`}>
+                <NavLink
+                  activeStyle={{ color: "#c90f0f" }}
+                  to={`/categories/${category.id}/posts`}
+                >
                   {category.name}
                 </NavLink>
               </div>

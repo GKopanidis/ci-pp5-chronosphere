@@ -46,7 +46,7 @@ const UsernameForm = () => {
       setShowSuccessMessage(true);
       setTimeout(() => {
         history.goBack();
-      }, 3000);
+      }, 1000);
     } catch (err) {
       setErrors(err.response?.data);
     }

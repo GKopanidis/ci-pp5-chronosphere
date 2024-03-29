@@ -41,7 +41,7 @@ const SignUpForm = () => {
       setShowSuccessMessage(true);
       setTimeout(() => {
         history.push("/signin");
-      }, 3000);
+      }, 1000);
     } catch (err) {
       setErrors(err.response?.data);
     }

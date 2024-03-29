@@ -15,7 +15,7 @@ import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 
-function PostCreateForm() {
+const PostCreateForm = () => {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -52,7 +52,7 @@ function PostCreateForm() {
     setShowCancelMessage(true);
     setTimeout(() => {
       history.goBack();
-    }, 3000);
+    }, 1000);
   };
 
   const handleSubmit = async (event) => {
@@ -77,7 +77,7 @@ function PostCreateForm() {
       setShowSuccessMessage(true);
       setTimeout(() => {
         history.push(`/posts/${data.id}`);
-      }, 3000);
+      }, 1000);
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {

@@ -16,7 +16,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import TopCategories from "../categories/TopCategories";
 import { axiosReq } from "../../api/axiosDefaults";
 
-function PostsPage({ message, filter = "" }) {
+const PostsPage = ({ message, filter = "" }) => {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -28,7 +28,7 @@ function PostsPage({ message, filter = "" }) {
     const fetchPosts = async () => {
       try {
         const categoryFilter = categoryId ? `category=${categoryId}&` : "";
-        const apiUrl = `/posts/?${categoryFilter}search=${query}`;
+        const apiUrl = `/posts/?${filter}${categoryFilter}search=${query}`;
         const { data } = await axiosReq.get(apiUrl);
         setPosts(data);
         setHasLoaded(true);

@@ -6,14 +6,14 @@ import styles from "../../styles/CommentCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
-function CommentCreateForm({
+const CommentCreateForm = ({
   post,
   setPost,
   setComments,
   profileImage,
   profile_id,
   parentCommentId,
-}) {
+}) => {
   const [content, setContent] = useState("");
 
   const handleChange = (event) => {

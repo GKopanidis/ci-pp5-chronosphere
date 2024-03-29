@@ -45,7 +45,7 @@ const UserPasswordForm = () => {
       setShowSuccessMessage(true);
       setTimeout(() => {
         history.goBack();
-      }, 3000);
+      }, 1000);
     } catch (err) {
       // console.log(err);
       setErrors(err.response?.data);
@@ -101,10 +101,10 @@ const UserPasswordForm = () => {
             </Button>
           </Form>
           {showSuccessMessage && (
-          <Alert variant="success" className="mt-3">
-            Your password has been changed successfully. Redirecting...
-          </Alert>
-        )}
+            <Alert variant="success" className="mt-3">
+              Your password has been changed successfully. Redirecting...
+            </Alert>
+          )}
         </Container>
       </Col>
     </Row>

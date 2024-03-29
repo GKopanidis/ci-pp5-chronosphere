@@ -15,7 +15,7 @@ import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import NotFound from "../../components/NotFound";
 
-function PostPage() {
+const PostPage = () => {
   const { id } = useParams();
   const [post, setPost] = useState({ results: [] });
   const currentUser = useCurrentUser();

@@ -12,7 +12,7 @@ import btnStyles from "../../styles/Button.module.css";
 import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 
-function PostEditForm() {
+const PostEditForm = () => {
   const [errors, setErrors] = useState({});
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showCancelMessage, setShowCancelMessage] = useState(false);
@@ -74,7 +74,7 @@ function PostEditForm() {
     setShowCancelMessage(true);
     setTimeout(() => {
       history.goBack();
-    }, 3000);
+    }, 1000);
   };
 
   const handleSubmit = async (event) => {
@@ -97,7 +97,7 @@ function PostEditForm() {
       setShowSuccessMessage(true);
       setTimeout(() => {
         history.push(`/posts/${id}`);
-      }, 3000);
+      }, 1000);
     } catch (err) {
       // console.log(err);
       if (err.response?.status !== 401) {
@@ -203,16 +203,16 @@ function PostEditForm() {
           </Container>
         </Col>
         <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>
-            {textFields}
-          </Container>
+          <Container className={appStyles.Content}>{textFields}</Container>
           <br />
           {showSuccessMessage && (
-              <Alert variant="success">Post successfully updated! Redirecting...</Alert>
-            )}
-            {showCancelMessage && (
-              <Alert variant="warning">Update canceled! Redirecting...</Alert>
-            )}
+            <Alert variant="success">
+              Post successfully updated! Redirecting...
+            </Alert>
+          )}
+          {showCancelMessage && (
+            <Alert variant="warning">Update canceled! Redirecting...</Alert>
+          )}
         </Col>
       </Row>
     </Form>
