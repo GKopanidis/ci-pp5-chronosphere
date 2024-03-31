@@ -181,7 +181,7 @@ This Agile planning setup contributed significantly to the efficient and focused
 
 - **Managing Favorites for Quick Access** As a user, I want to add posts to a favorites list and have a dedicated tab for my favorites so that I can quickly access posts I've marked as interesting or important.
 
-- **Optimize image uploads by users:** Every image, if not already in WEBP format, should be automatically converted to WEBP to prevent any deterioration in page loading time.
+- **Optimize image uploads by users:** Every image should be automatically converted for example to WEBP to prevent any deterioration in page loading time. [Read more](https://github.com/GKopanidis/ci-pp5-chronosphere/blob/main/TESTING.md#light-house-report/)
 
 
 [Back to Top](#index---table-of-contents)
@@ -418,10 +418,6 @@ The live link can be found here: [Live Site](https://ci-pp5-chronosphere-fae2dfb
 - NoResults Image:
   
   <a href="https://www.freepik.com/free-vector/detective-following-footprints-concept-illustration_82648093.htm#fromView=search&page=2&position=35&uuid=3c5be644-3a4b-44c3-9288-037feb6d23d9">Image by storyset on Freepik</a>
-    
-- Sign Up Image:
-   
-  <a href="https://www.freepik.com/free-vector/mobile-login-concept-illustration_4957136.htm#fromView=search&page=1&position=1&uuid=9d80e13c-1bbe-4e4d-84ae-2d1b2e0a9c70">Image by storyset on Freepik</a>
     
 - Upload Image: 
 
