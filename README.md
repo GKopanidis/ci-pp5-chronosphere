@@ -181,7 +181,9 @@ This Agile planning setup contributed significantly to the efficient and focused
 
 - **Managing Favorites for Quick Access** As a user, I want to add posts to a favorites list and have a dedicated tab for my favorites so that I can quickly access posts I've marked as interesting or important.
 
-- **Optimize image uploads by users:** Every image should be automatically converted for example to WEBP to prevent any deterioration in page loading time. [Read more](https://github.com/GKopanidis/ci-pp5-chronosphere/blob/main/TESTING.md#light-house-report/)
+- **Optimize image uploads by users:** Every image should be automatically converted for example to WEBP to prevent any deterioration in page loading time. [Resizing images and converting formats in Django](https://www.codu.co/articles/resizing-images-and-converting-formats-in-django-1rj9kdho) (Thank you to my mentor [Gareth-McGirr](https://github.com/Gareth-McGirr) for providing me this solution). 
+
+  [Read more in the TESTING.md LightHouse Section ](https://github.com/GKopanidis/ci-pp5-chronosphere/blob/main/TESTING.md#light-house-report)
 
 
 [Back to Top](#index---table-of-contents)
