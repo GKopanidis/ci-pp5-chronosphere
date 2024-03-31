@@ -2,6 +2,10 @@
 
 Dive into the world of ChronoSphere, where every second counts and every moment tells a story. Create your profile today and join a growing community ready to push the boundaries of digital communication. Welcome to ChronoSphere – where time never stands still, and every moment matters.
 
+![ChronoSphere Mockup](docs/readme_images/Mockup_ChronoSphere.png)
+
+[ChronoSphere live site](https://ci-pp5-chronosphere-fae2dfb25e8d.herokuapp.com/)
+
 ## Index - Table of Contents
 
 - [Explore Our Content](#explore-our-content)
@@ -51,8 +55,6 @@ ChronoSphere is a dynamic social media platform designed to connect users from a
 
 The platform stands out with its intuitive interface, making it easy to navigate and discover new content. From exciting posts to the latest likes and most-followed profiles, ChronoSphere brings the world to your fingertips. Featuring capabilities such as adding posts, liking, commenting, and customizing your feed to suit your preferences, ChronoSphere provides a personalized and interactive experience.
 
-![ChronoSphere Mockup](docs/readme_images/Mockup_ChronoSphere.png)
-
 [ChronoSphere live site](https://ci-pp5-chronosphere-fae2dfb25e8d.herokuapp.com/)
 
 [Back to Top](#index---table-of-contents)
@@ -60,7 +62,7 @@ The platform stands out with its intuitive interface, making it easy to navigate
 
 ## Agile Planning and Development Process
 
-The development of HW|Blog followed an Agile methodology, utilizing a Kanban board hosted on GitHub to manage tasks and workflows. This approach made it easier to focus on immediate tasks while also keeping an eye on the broader project goals and progress.
+The development of ChronoSphere followed an Agile methodology, utilizing a Kanban board hosted on GitHub to manage tasks and workflows. This approach made it easier to focus on immediate tasks while also keeping an eye on the broader project goals and progress.
 
 
 ### Kanban Board
@@ -302,7 +304,7 @@ Prioritizing ease of navigation, ChronoSphere is equipped with a straightforward
 
 ### Version Control
 
-The site was created using the Visual Studio Code editor and pushed to github to the remote repository ‘ci-pp4-hwblog’.
+The site was created using the Visual Studio Code editor and pushed to github to the remote repository ‘ci-pp5-chronosphere’.
 
 The following git commands were used throughout development to push code to the remote repo:
 
