@@ -185,6 +185,8 @@ This Agile planning setup contributed significantly to the efficient and focused
 
   [Read more in the TESTING.md LightHouse Section ](https://github.com/GKopanidis/ci-pp5-chronosphere/blob/main/TESTING.md#light-house-report)
 
+- **Uploading GIFs and Videos:** As a user, I want to be able to upload GIFs and videos to enhance my posts and comments, making them more visually appealing and allowing for content to be shared in a more dynamic format. This feature enables me to foster livelier and more interactive discussions within the community.
+
 
 [Back to Top](#index---table-of-contents)
 
