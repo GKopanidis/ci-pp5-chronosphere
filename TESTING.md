@@ -66,6 +66,8 @@ In addition to the accessibility tests, several other tests were conducted to en
 
 <img src="docs/readme_images/eslint.png" width="75%" height="75%">
 
+*The error that is displayed will be fixed at a later time, as an older version of React was used for this project.
+
 ### PEP8 Testing
 
 Python code was analyzed using PEP8 and passed without any remarks.
@@ -111,6 +113,11 @@ Python code was analyzed using PEP8 and passed without any remarks.
          </tr>
          <tr>
          <td align="center">Safari</td>
+         <td align="center">✔</td>
+         <td align="center">✔</td>
+         </tr>
+         <tr>
+         <td align="center">Brave</td>
          <td align="center">✔</td>
          <td align="center">✔</td>
          </tr>
